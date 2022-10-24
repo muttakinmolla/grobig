@@ -1,17 +1,3 @@
-.team-thumb {
-    background: #ffffff;
-    position: relative;
-    overflow: hidden;
-    text-align: left;
-}
-
-.team-info {
-    padding: 20px 30px;
-}
-
-.team-image img {
-    width: 100%;
-}
 
 .team-thumb .social-icon {
     border-top: 1px solid #f0f0f0;
