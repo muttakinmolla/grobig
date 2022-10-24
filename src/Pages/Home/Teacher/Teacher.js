@@ -4,6 +4,7 @@ import author from '../../../assets/images/author-image1.jpg';
 import author2 from '../../../assets/images/author-image2.jpg';
 import author3 from '../../../assets/images/author-image3.jpg';
 import author4 from '../../../assets/images/author-image4.jpg';
+import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
 
 const Teacher = () => {
     return (
@@ -27,9 +28,11 @@ const Teacher = () => {
                                 <span>I love Teaching</span>
                             </div>
                             <ul className="social-icon">
-                                <li><a href="#" className="fa fa-facebook-square" attr="facebook icon"></a></li>
-                                <li><a href="#" className="fa fa-twitter"></a></li>
-                                <li><a href="#" className="fa fa-instagram"></a></li>
+                                <li>
+                                <FaFacebook/>
+                                </li>
+                                <li> <FaInstagram/></li>
+                                <li> <FaTwitter/></li>
                             </ul>
                         </div>
                     </div>
