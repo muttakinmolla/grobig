@@ -1,35 +1,48 @@
 import React from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import  './Navbar.css';
 
 const NavBar = () => {
-    return (
-        <div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <div className="container-fluid">
-                    <Link className="navbar-brand" to="/">Navbar scroll</Link>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbarScroll">
-                        <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style={{"--bs-scroll-height": "100px;"}}>
-                            <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="#">Home</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">Link</a>
-                            </li>
+    const [theme, setTheme] = useState('light')
 
-                            <li className="nav-item">
-                                <a className="nav-link disabled" href="#" tabIndex="-1" aria-disabled="true">Link</a>
-                            </li>
-                        </ul>
-                        <form className="d-flex">
-                            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                            <button className="btn btn-outline-success" type="submit">Search</button>
-                        </form>
+    const handleThemeChange = (theme) => {
+        console.log(theme)
+        setTheme(theme);
+    }
+    return (
+        <div className='sticky-top bg-light'>
+
+            <div className='container pt-2 pb-2'>
+                <nav className="navbar navbar-expand-lg navbar-light bg-sm-light">
+                    <div className="container-fluid">
+                        <Link className="navbar-brand fs-3 fw-bold logo" to="/">GrowBig</Link>
+                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                            <span className="navbar-toggler-icon"></span>
+                        </button>
+                        <div className="collapse navbar-collapse" id="navbarScroll">
+                            <ul className="navbar-nav ms-auto my-3 my-lg-0 navbar-nav-scroll" style={{ "--bs-scroll-height": "100px;" }}>
+                                <li className="nav-item fs-5 fw-bold item">
+                                    <Link className="nav-link" aria-current="page" to="/course">Courses</Link>
+                                </li>
+                                <li className="nav-item fs-5 fw-bold item">
+                                    <Link className="nav-link" to="/faq">FAQ</Link>
+                                </li>
+
+                                <li className="nav-item fs-5 fw-bold item">
+                                    <Link className="nav-link" to="/blog">Blog</Link>
+                                </li>
+                            </ul>
+                            <div className="d-flex ms-4">
+                                {
+                                    theme.light ? <button className="btn btn-outline-success" onClick={() => handleThemeChange('dark')} type="button">dark</button> : <button onClick={() => handleThemeChange('light')} className="btn btn-outline-success" type="button">light</button>
+                                }
+
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </nav>
+                </nav>
+            </div>
         </div>
     );
 };

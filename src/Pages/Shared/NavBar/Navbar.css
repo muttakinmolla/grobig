@@ -1,0 +1,11 @@
+.logo {
+    color: #2A766C;
+}
+.item:hover{
+    color:white;
+    background-color: #2A766C;
+    border-radius: 8px;
+}
+.item:hover a{
+    color:white;
+}
