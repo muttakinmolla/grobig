@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import  './Navbar.css';
+import './Navbar.css';
 
 const NavBar = () => {
     const [theme, setTheme] = useState('light')
@@ -32,11 +32,16 @@ const NavBar = () => {
                                 <li className="nav-item fs-5 fw-bold item">
                                     <Link className="nav-link" to="/blog">Blog</Link>
                                 </li>
+                                <li className="nav-item fs-5 fw-bold item">
+                                    <Link className="nav-link" to="/register">Register</Link>
+                                </li>
                             </ul>
                             <div className="d-flex ms-4">
                                 {
-                                    theme.light ? <button className="btn btn-outline-success" onClick={() => handleThemeChange('dark')} type="button">dark</button> : <button onClick={() => handleThemeChange('light')} className="btn btn-outline-success" type="button">light</button>
+                                    theme == 'light'?<button className="btn btn-outline-dark" onClick={() => handleThemeChange('dark')} type="button">dark</button> : <button onClick={() => handleThemeChange('light')} className="btn btn-outline-success" type="button">light</button>
                                 }
+                                
+                                
 
                             </div>
                         </div>
