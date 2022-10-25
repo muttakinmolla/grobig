@@ -1,11 +1,23 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { FaTrash } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Checkout = () => {
     const course = useLoaderData();
     const { _id, course_id, course_name, imageUrl, description, price } = course;
+    const checkOutHandler = () => {
+        toast.success('You have Successfully buy this course', {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+        });
+    }
     return (
         <div className='row shadow'>
             <div className="col-lg-6 ">
@@ -40,7 +52,19 @@ const Checkout = () => {
                     </tbody>
                 </table>
             </div>
-            <button className='btn btn-info w-25 m-auto mb-4 fw-bold fs-5'>Buy</button>
+            <button className='btn btn-info w-25 m-auto mb-4 fw-bold fs-5' onClick={checkOutHandler}>Buy</button>
+            <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="colored"
+            />
         </div>
     );
 };
