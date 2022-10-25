@@ -4,13 +4,17 @@ import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { FaFacebook, FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import loginImage from '../../assets/images/login.jpg';
 import { AuthContext } from '../../contexts/AuthProvidor/AuthProvider';
 
 const Login = () => {
     const { googleSignIn, signInEmailPassword } = useContext(AuthContext);
-    const [error, setError] = useState('')
+    const navigate = useNavigate();
+    const [error, setError] = useState('');
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
     const googleProvider = new GoogleAuthProvider();
 
     const handleGoogleSignIn = () => {
@@ -33,7 +37,9 @@ const Login = () => {
         signInEmailPassword(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                setError('');
+                form.reset();
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.log(error);
@@ -47,14 +53,14 @@ const Login = () => {
                 <div className="row">
                     <div className="col-lg-6 mt-lg-5 mb-lg-5 m-auto">
                         <div className="card mb-3">
-                            <div className="row g-0 p-lg-5">
+                            <div className="row g-0 p-lg-3">
                                 <div className="col-md-6">
-                                    <img src={loginImage} className="img-fluid h-100 p-2 rounded" alt="..." />
+                                    <img src={loginImage} className="img-fluid h-100 rounded" alt="..." />
                                 </div>
                                 <div className="col-md-6">
                                     <div className="card-body">
                                         <form onSubmit={handleSignIn}>
-                                            
+
                                             <div className="mb-3 m-auto">
                                                 <label className="form-label">Email address</label>
                                                 <input type="email" className="form-control" name='email' placeholder='type your email' />
