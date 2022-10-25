@@ -12,7 +12,7 @@ const SingleCourse = ({ course }) => {
                     <h5 className="card-title">{course_name}</h5>
                     <p className="card-text">{description}</p>
                     <p>price : ${price}</p>
-                    <Link to="#" className="btn btn-primary">Go somewhere</Link>
+                    <Link to={`/course/details/${_id}`} className="btn btn-primary">Go somewhere</Link>
                 </div>
             </div>
         </div>
