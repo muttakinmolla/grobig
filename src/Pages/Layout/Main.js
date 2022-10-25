@@ -5,7 +5,7 @@ import NavBar from '../Shared/NavBar/NavBar';
 
 const Main = () => {
     return (
-        <div className='container-fluid'>
+        <div className=''>
             <NavBar></NavBar>
 
             <Outlet></Outlet>
