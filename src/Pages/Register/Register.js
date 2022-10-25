@@ -4,16 +4,17 @@ import loginImage from '../../assets/images/login.jpg';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvidor/AuthProvider';
 import { useContext } from 'react';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { FaFacebook, FaGoogle } from 'react-icons/fa';
+import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
 import { useState } from 'react';
 
 const Register = () => {
-    const { googleSignIn, createUserEmailPassword } = useContext(AuthContext);
+    const { googleSignIn, createUserEmailPassword, githubSignin } = useContext(AuthContext);
     const [error, setError] = useState('');
 
     const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
@@ -35,7 +36,6 @@ const Register = () => {
             })
     }
 
-
     const handleGoogleSignIn = () => {
         googleSignIn(googleProvider)
             .then(result => {
@@ -44,6 +44,19 @@ const Register = () => {
             })
             .catch(error => {
                 console.log(error);
+            })
+    }
+
+    const handleGitHubSignIng = () => {
+        githubSignin(githubProvider)
+            .then(result => {
+                const user = result.user;
+                setError('');
+                console.log(user);
+            })
+            .catch(error => {
+                setError(error.message);
+                console.log(error)
             })
     }
     return (
@@ -85,7 +98,7 @@ const Register = () => {
                                         <p className='text-center mt-lg-3'>OR</p>
                                         <div className="">
                                             <button onClick={handleGoogleSignIn} className='btn btn-outline-primary w-100'><FaGoogle className='fw-bold' /> login With Google</button>
-                                            <button className='btn btn-outline-primary w-100 mt-lg-2'><FaFacebook className='fw-bold' /> login With Google</button>
+                                            <button onClick={handleGitHubSignIng} className='btn btn-outline-primary w-100 mt-lg-2'><FaGithub className='fw-bold' /> login With github</button>
                                         </div>
                                         <p className='ms-2 mt-2'>Already Have an Account? <Link to="/login">Login</Link></p>
                                     </div>

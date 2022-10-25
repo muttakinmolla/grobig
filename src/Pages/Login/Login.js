@@ -21,7 +21,7 @@ const Login = () => {
         googleSignIn(googleProvider)
             .then(result => {
                 const user = result.user;
-                console.log(user)
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 console.log(error);
@@ -73,11 +73,11 @@ const Login = () => {
                                                 <p className='text-danger'>{error}</p>
                                             </div>
                                             <div className="m-auto pt-lg-2">
-                                                <button type="submit" className="btn btn-primary w-100">Register</button>
+                                                <button type="submit" className="btn btn-primary w-100">Login</button>
                                             </div>
                                             <p className='text-center mt-lg-3'>OR</p>
                                             <div className="">
-                                                <button onClick={handleGoogleSignIn} className='btn btn-outline-primary w-100'><FaGoogle className='fw-bold' /> login With Google</button>
+                                                <button type='button' onClick={handleGoogleSignIn} className='btn btn-outline-primary w-100'><FaGoogle className='fw-bold' /> login With Google</button>
                                                 <button className='btn btn-outline-primary w-100 mt-lg-2'><FaFacebook className='fw-bold' /> login With FaceBook</button>
                                             </div>
                                             <div className="m-auto pt-2">
