@@ -1,9 +1,12 @@
 import React from 'react';
+import { useContext } from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvidor/AuthProvider';
 import './Navbar.css';
 
 const NavBar = () => {
+    const { user } = useContext(AuthContext)
     const [theme, setTheme] = useState('light')
 
     const handleThemeChange = (theme) => {
@@ -35,13 +38,16 @@ const NavBar = () => {
                                 <li className="nav-item fs-5 fw-bold item">
                                     <Link className="nav-link" to="/register">Register</Link>
                                 </li>
+                                <li className="nav-item fs-5 fw-bold item">
+                                    <p>{user.name}</p>
+                                </li>
                             </ul>
                             <div className="d-flex ms-4">
                                 {
-                                    theme == 'light'?<button className="btn btn-outline-dark" onClick={() => handleThemeChange('dark')} type="button">dark</button> : <button onClick={() => handleThemeChange('light')} className="btn btn-outline-success" type="button">light</button>
+                                    theme == 'light' ? <button className="btn btn-outline-dark" onClick={() => handleThemeChange('dark')} type="button">dark</button> : <button onClick={() => handleThemeChange('light')} className="btn btn-outline-success" type="button">light</button>
                                 }
-                                
-                                
+
+
 
                             </div>
                         </div>
