@@ -1,5 +1,6 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { FaTrash } from 'react-icons/fa';
+import { FaShoppingBag, FaTrash } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 
@@ -52,7 +53,7 @@ const Checkout = () => {
                     </tbody>
                 </table>
             </div>
-            <button className='btn btn-info w-25 m-auto mb-4 fw-bold fs-5' onClick={checkOutHandler}>Buy</button>
+            <button className='btn btn-info w-25 m-auto mb-4 fw-bold fs-5' onClick={checkOutHandler}> <FaShoppingBag className='mb-1'/> Buy</button>
             <ToastContainer
                 position="top-center"
                 autoClose={5000}
