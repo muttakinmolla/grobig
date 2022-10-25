@@ -13,7 +13,7 @@ const CourseDetails = () => {
                         <h5 className="card-title">Course Name: {course_name}</h5>
                         <p className="card-text"><span className='fw-bold'>Course Details:</span> {description}</p>
                         <p>price : ${price}</p>
-                        <Link to={`/course/checkout/${_id}`} className="btn btn-primary">Checkout</Link>
+                        <Link to={`/course/checkout/${_id}`} className="btn btn-primary">Get Premium Access</Link>
                     </div>
                 </div>
             </div>

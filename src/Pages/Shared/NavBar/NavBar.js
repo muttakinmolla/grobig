@@ -68,7 +68,7 @@ const NavBar = () => {
                                         :
                                         <>
                                             <li className="nav-item fs-5 fw-bold item">
-                                                <Link className="nav-link" to="/register">Register</Link>
+                                                <Link className="nav-link" to="/login">Login</Link>
                                             </li>
                                         </>
                                 }

@@ -61,8 +61,8 @@ const Login = () => {
 
     }
     return (
-        <div className="container">
-            <div className="bg">
+        <div className="bg">
+            <div className="container ">
                 <div className="row">
                     <div className="col-lg-6 mt-lg-5 mb-lg-5 m-auto">
                         <div className="card mb-3">

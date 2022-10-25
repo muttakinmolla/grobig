@@ -69,3 +69,21 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 # b610-learning-platform-client-side-muttakinmolla
+
+
+<!-- -----------------------------------------
+design & Develop : Md. Muttakin Molla
+Technology use : 
+Bootstrap-5,
+Html-5,
+React-tostify,
+firebase -> google sign in, github signin, email password signin,
+react router dom,
+react-fontawesome
+react-icon,
+etc,
+
+
+
+
+------------------------------------------- -->
