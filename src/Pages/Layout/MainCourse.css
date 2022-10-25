@@ -1,0 +1,11 @@
+ul li{
+    list-style: none;
+}
+.aside{
+    background-color: blueviolet;
+    /* position: fixed; */
+    /* left: 200px; */
+}
+.course-item{
+    background-color: aquamarine;
+}

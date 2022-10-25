@@ -1,9 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
+import AllCourses from "../Pages/AllCourses/AllCourses";
 import Blog from "../Pages/Blog/Blog";
 import Courses from "../Pages/Courses/Courses";
+import DynamicCourses from "../Pages/DynamicCourses/DynamicCourses";
 import Faq from "../Pages/Faq/Faq";
 import Home from "../Pages/Home/Home/Home";
 import Main from "../Pages/Layout/Main";
+import MainCourse from "../Pages/Layout/MainCourse";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 
@@ -22,7 +25,20 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/course',
-                element: <Courses></Courses>
+                loader: () => fetch('http://localhost:5000/news'),
+                element: <MainCourse></MainCourse>,
+                children: [
+                    {
+                        path: '/course',
+                        loader: () => fetch('http://localhost:5000/courses'),
+                        element: <AllCourses></AllCourses>
+                    },
+                    {
+                        path: 'course/:id',
+                        loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`),
+                        element: <DynamicCourses></DynamicCourses>
+                    }
+                ]
             },
             {
                 path: '/faq',
