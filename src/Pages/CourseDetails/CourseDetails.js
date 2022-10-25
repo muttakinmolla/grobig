@@ -6,14 +6,14 @@ const CourseDetails = () => {
     const { imageUrl, price, description, _id, course_name } = course;
     return (
         <div>
-            <div className='col-lg-4 mb-3'>
+            <div className='mt-3 mb-3'>
                 <div className="card shadow p-3 mb-5">
-                    <img src={imageUrl} className="img-fluid course-img m-auto" alt="..." />
+                    <img src={imageUrl} className="img-fluid w-75 m-auto" alt="..." />
                     <div className="card-body">
-                        <h5 className="card-title">{course_name}</h5>
-                        <p className="card-text">{description}</p>
+                        <h5 className="card-title">Course Name: {course_name}</h5>
+                        <p className="card-text"><span className='fw-bold'>Course Details:</span> {description}</p>
                         <p>price : ${price}</p>
-                        <Link to="#" className="btn btn-primary">Go somewhere</Link>
+                        <Link to={`/course/checkout/${_id}`} className="btn btn-primary">Checkout</Link>
                     </div>
                 </div>
             </div>

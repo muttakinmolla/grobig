@@ -4,7 +4,6 @@ import './MainCourse.css';
 
 const MainCourse = () => {
     const courses = useLoaderData();
-    console.log(courses);
     return (
         <div className="container">
             <div className='row'>
