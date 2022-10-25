@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useContext } from 'react';
 import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import loginImage from '../../assets/images/login.jpg';
 import { AuthContext } from '../../contexts/AuthProvidor/AuthProvider';
 
@@ -23,6 +24,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 setError('');
+                toast.success();
                 navigate(from, { replace: true })
             })
             .catch(error => {
@@ -36,6 +38,7 @@ const Login = () => {
                 const user = result.user;
                 setError('');
                 navigate(from, { replace: true });
+                toast.success();
             })
             .catch(error => {
                 setError(error.message);
