@@ -5,6 +5,7 @@ import Checkout from "../Pages/Checkout/Checkout";
 import CourseDetails from "../Pages/CourseDetails/CourseDetails";
 import Courses from "../Pages/Courses/Courses";
 import DynamicCourses from "../Pages/DynamicCourses/DynamicCourses";
+import Error404 from "../Pages/Error404/Error404";
 import Faq from "../Pages/Faq/Faq";
 import Home from "../Pages/Home/Home/Home";
 import Main from "../Pages/Layout/Main";
@@ -69,6 +70,6 @@ export const routes = createBrowserRouter([
     },
     {
         path: '*',
-        element: <div>Not found</div>
+        element: <Error404></Error404>
     }
 ])
