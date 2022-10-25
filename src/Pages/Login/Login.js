@@ -1,30 +1,44 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
-import { FaFacebook, FaGoogle } from 'react-icons/fa';
+import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import loginImage from '../../assets/images/login.jpg';
 import { AuthContext } from '../../contexts/AuthProvidor/AuthProvider';
 
 const Login = () => {
-    const { googleSignIn, signInEmailPassword } = useContext(AuthContext);
+    const { googleSignIn, signInEmailPassword, githubSignin } = useContext(AuthContext);
     const navigate = useNavigate();
     const [error, setError] = useState('');
     const location = useLocation();
 
     const from = location.state?.from?.pathname || '/';
     const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
 
     const handleGoogleSignIn = () => {
         googleSignIn(googleProvider)
             .then(result => {
                 const user = result.user;
+                setError('');
                 navigate(from, { replace: true })
             })
             .catch(error => {
-                console.log(error);
+                setError(error.message);
+            })
+    }
+
+    const handleGitHubSignIng = () => {
+        githubSignin(githubProvider)
+            .then(result => {
+                const user = result.user;
+                setError('');
+                navigate(from, { replace: true });
+            })
+            .catch(error => {
+                setError(error.message);
             })
     }
 
@@ -42,7 +56,6 @@ const Login = () => {
                 navigate(from, { replace: true });
             })
             .catch(error => {
-                console.log(error);
                 setError(error.message)
             })
 
@@ -78,7 +91,7 @@ const Login = () => {
                                             <p className='text-center mt-lg-3'>OR</p>
                                             <div className="">
                                                 <button type='button' onClick={handleGoogleSignIn} className='btn btn-outline-primary w-100'><FaGoogle className='fw-bold' /> login With Google</button>
-                                                <button className='btn btn-outline-primary w-100 mt-lg-2'><FaFacebook className='fw-bold' /> login With FaceBook</button>
+                                                <button onClick={handleGitHubSignIng} type='button' className='btn btn-outline-primary w-100 mt-lg-2'><FaGithub className='fw-bold' /> login With GitHub</button>
                                             </div>
                                             <div className="m-auto pt-2">
                                                 <p className='ms-3'>Are you a New User? Please <Link to="/register">Register</Link></p>

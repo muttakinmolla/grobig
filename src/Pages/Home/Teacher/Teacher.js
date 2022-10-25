@@ -18,7 +18,7 @@ const Teacher = () => {
                         </div>
                     </div>
 
-                    <div className="col-md-3 col-sm-6">
+                    <div className="col-md-3 col-sm-6 text-center">
                         <div className="team-thumb">
                             <div className="team-image">
                                 <img src={author} className="img-fluid w-100" alt="" />
@@ -37,7 +37,7 @@ const Teacher = () => {
                         </div>
                     </div>
 
-                    <div className="col-md-3 col-sm-6">
+                    <div className="col-md-3 col-sm-6 text-center">
                         <div className="team-thumb">
                             <div className="team-image">
                                 <img src={author2} className="img-fluid w-100" alt="" />
@@ -56,7 +56,7 @@ const Teacher = () => {
                         </div>
                     </div>
 
-                    <div className="col-md-3 col-sm-6">
+                    <div className="col-md-3 col-sm-6 text-center">
                         <div className="team-thumb">
                             <div className="team-image">
                                 <img src={author3} className="img-fluid w-100" alt="" />
@@ -75,7 +75,7 @@ const Teacher = () => {
                         </div>
                     </div>
 
-                    <div className="col-md-3 col-sm-6">
+                    <div className="col-md-3 col-sm-6 text-center">
                         <div className="team-thumb">
                             <div className="team-image">
                                 <img src={author4} className="img-fluid w-100" alt="" />

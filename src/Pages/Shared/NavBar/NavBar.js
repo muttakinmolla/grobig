@@ -38,24 +38,31 @@ const NavBar = () => {
                         </button>
                         <div className="collapse navbar-collapse" id="navbarScroll">
                             <ul className="navbar-nav ms-auto my-3 my-lg-0 navbar-nav-scroll" style={{ "--bs-scroll-height": "100px;" }}>
-                                <li className="nav-item fs-5 fw-bold item">
+                                <li className="nav-item fs-5 fw-bold item me-lg-4">
                                     <Link className="nav-link" aria-current="page" to="/course">Courses</Link>
                                 </li>
-                                <li className="nav-item fs-5 fw-bold item">
+                                <li className="nav-item fs-5 fw-bold item me-lg-4">
                                     <Link className="nav-link" to="/faq">FAQ</Link>
                                 </li>
 
-                                <li className="nav-item fs-5 fw-bold item">
+                                <li className="nav-item fs-5 fw-bold item me-lg-4">
                                     <Link className="nav-link" to="/blog">Blog</Link>
                                 </li>
+
                                 {
                                     user?.uid ?
                                         <>
-                                            <img src={user.photoURL} style={{ height: '40px' }} className='rounded-circle' alt="" />
-                                            {/* <li className="nav-item fs-5 fw-bold item">
-                                                <p>{user?.displayName}</p>
-                                            </li> */}
-                                            <button onClick={handleLogOut}>Logout</button>
+
+                                            <li className="nav-item dropdown">
+                                                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <img src={user.photoURL} style={{ height: '40px' }} className='rounded-circle' alt="" data-bs-toggle="tooltip" data-bs-placement="top" title={user?.displayName} />
+                                                </a>
+                                                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                    <li><button onClick={handleLogOut} className='btn dropdown-item'>Logout</button></li>
+                                                    <li><Link className="dropdown-item" href="#">Profile</Link></li>
+                                                </ul>
+                                            </li>
+
 
                                         </>
                                         :

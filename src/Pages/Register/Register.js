@@ -1,7 +1,7 @@
 import React from 'react';
 import './Register.css';
 import loginImage from '../../assets/images/login.jpg';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvidor/AuthProvider';
 import { useContext } from 'react';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
@@ -10,11 +10,24 @@ import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
 import { useState } from 'react';
 
 const Register = () => {
-    const { googleSignIn, createUserEmailPassword, githubSignin } = useContext(AuthContext);
+    const { googleSignIn, createUserEmailPassword, githubSignin, updateUserProfile } = useContext(AuthContext);
     const [error, setError] = useState('');
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
+
+    const handleUpdateUserProfile = (name, photoUrl) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoUrl
+        }
+        updateUserProfile(profile)
+            .then(result => { })
+            .catch(error => { })
+    }
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
@@ -29,6 +42,9 @@ const Register = () => {
                 const user = result.user;
                 setError('');
                 form.reset();
+                handleUpdateUserProfile(name, photoUrl);
+                console.log(user)
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.log(error);
@@ -40,10 +56,10 @@ const Register = () => {
         googleSignIn(googleProvider)
             .then(result => {
                 const user = result.user;
-                console.log(user)
+                navigate(from, { replace: true });
             })
             .catch(error => {
-                console.log(error);
+                setError(error.message);
             })
     }
 
@@ -52,11 +68,10 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 setError('');
-                console.log(user);
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 setError(error.message);
-                console.log(error)
             })
     }
     return (
