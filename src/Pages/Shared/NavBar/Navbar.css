@@ -1,3 +1,7 @@
+.bgLight{
+    /* background-color: #81b5ae; */
+    background-color: rgba(203,229,217,255);
+}
 .logo {
     color: #2A766C;
 }

@@ -28,9 +28,9 @@ const NavBar = () => {
     }
 
     return (
-        <div className='sticky-top bg-light'>
+        <div className='sticky-top bgLight'>
 
-            <div className='container pt-2 pb-2'>
+            <div className='container'>
                 <nav className="navbar navbar-expand-lg navbar-light bg-sm-light">
                     <div className="container-fluid">
                         <Link className="navbar-brand fs-3 fw-bold logo" to="/"><img src={logo} alt="" /></Link>
