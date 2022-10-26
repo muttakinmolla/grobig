@@ -6,14 +6,23 @@ const CourseDetails = () => {
     const { imageUrl, price, description, _id, course_name } = course;
     return (
         <div>
-            <div className='mt-3 mb-3'>
-                <div className="card shadow p-3 mb-5">
-                    <img src={imageUrl} className="img-fluid w-75 m-auto" alt="..." />
-                    <div className="card-body">
-                        <h5 className="card-title">Course Name: {course_name}</h5>
-                        <p className="card-text"><span className='fw-bold'>Course Details:</span> {description}</p>
-                        <p>price : ${price}</p>
-                        <Link to={`/course/checkout/${_id}`} className="btn btn-primary">Get Premium Access</Link>
+            <div className='mt-lg-5 mb-lg-5 mb-3'>
+                <div className="row">
+                    <div className="col-lg-6">
+                        <div className="text-center">
+                            <img src={imageUrl} className="img-fluid w-50 rounded shadow p-3 mb-5 bg-body rounded" alt="..." />
+                        </div>
+                    </div>
+                    <div className="col-lg-6">
+                        <div className="shadow p-3 mb-5 bg-body rounded">
+                            <h5 className="text-center fw-bold fs-4 mb-lg-4">Course Name: {course_name}</h5>
+                            <p className=""><span className='fw-bold'>Course Details:</span> {description}</p>
+                            <p className="text-center fw-bold fs-4 mb-lg-4">price : ${price}</p>
+                        </div>
+                        <div className="d-flex flex-column flex-lg-row justify-content-lg-evenly mt-lg-5">
+                            <Link to={`/course/checkout/${_id}`} className="btn btn-primary ">Get Premium Access</Link>
+                            <Link to={`/course/checkout/${_id}`} className="btn btn-primary ">Get Premium Access</Link>
+                        </div>
                     </div>
                 </div>
             </div>
