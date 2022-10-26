@@ -1,11 +1,15 @@
 ul li{
     list-style: none;
 }
-.aside{
-    background-color: blueviolet;
+.aside .main-course{
+    background-color: rgb(222, 191, 251);
     /* position: fixed; */
     /* left: 200px; */
 }
 .course-item{
-    background-color: aquamarine;
+    background-color: rgb(94, 44, 97);
+}
+
+.main-course{
+    background-color: rgb(222, 191, 251);
 }

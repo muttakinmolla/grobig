@@ -3,7 +3,6 @@ import AllCourses from "../Pages/AllCourses/AllCourses";
 import Blog from "../Pages/Blog/Blog";
 import Checkout from "../Pages/Checkout/Checkout";
 import CourseDetails from "../Pages/CourseDetails/CourseDetails";
-import Courses from "../Pages/Courses/Courses";
 import DynamicCourses from "../Pages/DynamicCourses/DynamicCourses";
 import Error404 from "../Pages/Error404/Error404";
 import Faq from "../Pages/Faq/Faq";
