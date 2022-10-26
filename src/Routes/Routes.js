@@ -29,27 +29,27 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/course',
-                loader: () => fetch('http://localhost:5000/news'),
+                loader: () => fetch('https://grow-big-server.vercel.app/news'),
                 element: <MainCourse></MainCourse>,
                 children: [
                     {
                         path: '/course',
-                        loader: () => fetch('http://localhost:5000/courses'),
+                        loader: () => fetch('https://grow-big-server.vercel.app/courses'),
                         element: <AllCourses></AllCourses>
                     },
                     {
                         path: 'course/:id',
-                        loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`),
+                        loader: ({ params }) => fetch(`https://grow-big-server.vercel.app/course/${params.id}`),
                         element: <DynamicCourses></DynamicCourses>
                     },
                     {
                         path: '/course/details/:id',
-                        loader: ({ params }) => fetch(`http://localhost:5000/course-details/${params.id}`),
+                        loader: ({ params }) => fetch(`https://grow-big-server.vercel.app/course-details/${params.id}`),
                         element: <CourseDetails></CourseDetails>
                     },
                     {
                         path: '/course/checkout/:id',
-                        loader: ({ params }) => fetch(`http://localhost:5000/course-details/${params.id}`),
+                        loader: ({ params }) => fetch(`https://grow-big-server.vercel.app/course-details/${params.id}`),
                         element: <PrivateRoute><Checkout></Checkout></PrivateRoute>
                     }
                 ]
