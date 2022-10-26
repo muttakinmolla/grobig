@@ -6,6 +6,7 @@ import { FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvidor/AuthProvider';
 import './Navbar.css';
+import logo from '../../../assets/images/growBig (2).gif';
 
 const NavBar = () => {
     const { user, logOut } = useContext(AuthContext)
@@ -32,7 +33,7 @@ const NavBar = () => {
             <div className='container pt-2 pb-2'>
                 <nav className="navbar navbar-expand-lg navbar-light bg-sm-light">
                     <div className="container-fluid">
-                        <Link className="navbar-brand fs-3 fw-bold logo" to="/">GrowBig</Link>
+                        <Link className="navbar-brand fs-3 fw-bold logo" to="/"><img src={logo} alt="" /></Link>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>
