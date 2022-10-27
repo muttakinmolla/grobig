@@ -24,7 +24,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 setError('');
-                toast.success();
+                toast.success('successfully login');
                 navigate(from, { replace: true })
             })
             .catch(error => {
