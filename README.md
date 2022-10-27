@@ -83,7 +83,12 @@ react-fontawesome
 react-icon,
 etc,
 
-Live website Link : 
+backend :
+node.js
+express.js
+vercel hor hosting
+
+Live website Link : https://growbig-87ea7.web.app/
 live server site link :
 
 
