@@ -3,10 +3,10 @@ import React from 'react';
 import { useContext } from 'react';
 import { useState } from 'react';
 import { FaUser } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvidor/AuthProvider';
-import './Navbar.css';
 import logo from '../../../assets/images/growBig (2).gif';
+import './Navbar.css';
 
 const NavBar = () => {
     const { user, logOut } = useContext(AuthContext)
@@ -33,21 +33,21 @@ const NavBar = () => {
             <div className='container'>
                 <nav className="navbar navbar-expand-lg navbar-light bg-sm-light">
                     <div className="container-fluid">
-                        <Link className="navbar-brand fs-3 fw-bold logo" to="/"><img src={logo} alt="" /></Link>
+                        <Link className="navbar-brand fs-3 fw-bold logo {({isActive})=> isActive? 'active' : undefined}" to="/"><img src={logo} alt="" /></Link>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>
                         <div className="collapse navbar-collapse" id="navbarScroll">
                             <ul className="navbar-nav ms-auto my-3 my-lg-0 navbar-nav-scroll" style={{ "--bs-scroll-height": "100px;" }}>
                                 <li className="nav-item fs-5 fw-bold item me-lg-4">
-                                    <Link className="nav-link" aria-current="page" to="/course">Courses</Link>
+                                    <NavLink className="nav-link {({isActive})=> isActive? 'active' : undefined}" aria-current="page" to="/course">Courses</NavLink>
                                 </li>
                                 <li className="nav-item fs-5 fw-bold item me-lg-4">
-                                    <Link className="nav-link" to="/faq">FAQ</Link>
+                                    <NavLink className="nav-link {({isActive})=> isActive? 'active' : undefined}" to="/faq">FAQ</NavLink>
                                 </li>
 
                                 <li className="nav-item fs-5 fw-bold item me-lg-4">
-                                    <Link className="nav-link" to="/blog">Blog</Link>
+                                    <NavLink className="nav-link {({isActive})=> isActive? 'active' : undefined}" to="/blog">Blog</NavLink>
                                 </li>
 
                                 {
@@ -69,7 +69,7 @@ const NavBar = () => {
                                         :
                                         <>
                                             <li className="nav-item fs-5 fw-bold item">
-                                                <Link className="nav-link" to="/login">Login</Link>
+                                                <NavLink className="nav-link {({isActive})=> isActive? 'active' : undefined}" to="/login">Login</NavLink>
                                             </li>
                                         </>
                                 }

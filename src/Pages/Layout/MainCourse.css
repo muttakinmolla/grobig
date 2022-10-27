@@ -1,13 +1,9 @@
 ul li{
     list-style: none;
 }
-.aside .main-course{
-    background-color: rgb(222, 191, 251);
-    /* position: fixed; */
-    /* left: 200px; */
-}
+
 .course-item{
-    background-color: rgb(94, 44, 97);
+    background-color: rgb(70, 149, 118);
 }
 
 .main-course{

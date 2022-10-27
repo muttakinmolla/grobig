@@ -1,15 +1,25 @@
-.bgLight{
+.bgLight {
     /* background-color: #81b5ae; */
-    background-color: rgba(203,229,217,255);
+    background-color: #b8e0bb;
 }
+
 .logo {
     color: #2A766C;
 }
-.item:hover{
-    color:white;
+
+.item:hover {
+    color: white;
     background-color: #2A766C;
     border-radius: 8px;
 }
-.item:hover a{
-    color:white;
+
+.item:hover a {
+    color: white;
+}
+
+.active {
+    background-color: rgb(172, 100, 169);
+    /* background-color: rgb(238, 16, 16); */
+    border-radius: 10px;
+    color: white !important;
 }
