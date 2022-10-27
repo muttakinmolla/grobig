@@ -1,6 +1,6 @@
 .bgLight {
-    /* background-color: #81b5ae; */
-    background-color: #b8e0bb;
+    background-color: #81b5ae;
+    /* background-color: #b8e0bb; */
 }
 
 .logo {
@@ -9,7 +9,7 @@
 
 .item:hover {
     color: white;
-    background-color: #2A766C;
+    background-color: rgb(172, 100, 169);
     border-radius: 8px;
 }
 

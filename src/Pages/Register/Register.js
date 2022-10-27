@@ -8,9 +8,11 @@ import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
 import { useState } from 'react';
+import { ToastContainer } from 'react-bootstrap';
+import toast from 'react-hot-toast';
 
 const Register = () => {
-    const { googleSignIn, createUserEmailPassword, githubSignin, updateUserProfile } = useContext(AuthContext);
+    const { googleSignIn, createUserEmailPassword, githubSignin, updateUserProfile, emailVerify } = useContext(AuthContext);
     const [error, setError] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
@@ -36,14 +38,14 @@ const Register = () => {
         const photoUrl = form.photoUrl.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password, name, photoUrl)
         createUserEmailPassword(email, password)
             .then(result => {
                 const user = result.user;
                 setError('');
                 form.reset();
                 handleUpdateUserProfile(name, photoUrl);
-                console.log(user)
+                handleEmailVerification();
+                toast.success('Please Verify your Email');
                 navigate(from, { replace: true });
             })
             .catch(error => {
@@ -69,6 +71,16 @@ const Register = () => {
                 const user = result.user;
                 setError('');
                 navigate(from, { replace: true });
+            })
+            .catch(error => {
+                setError(error.message);
+            })
+    }
+
+    const handleEmailVerification = () => {
+        emailVerify()
+            .then(result => {
+                console.log(result)
             })
             .catch(error => {
                 setError(error.message);
@@ -118,10 +130,12 @@ const Register = () => {
                                         <p className='ms-2 mt-2'>Already Have an Account? <Link to="/login">Login</Link></p>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
 
         </div>

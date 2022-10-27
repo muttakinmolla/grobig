@@ -3,9 +3,9 @@ import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
-import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
+import toast from 'react-hot-toast';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import loginImage from '../../assets/images/login.jpg';
 import { AuthContext } from '../../contexts/AuthProvidor/AuthProvider';
 
@@ -50,13 +50,16 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password)
         signInEmailPassword(email, password)
             .then(result => {
                 const user = result.user;
                 setError('');
                 form.reset();
-                navigate(from, { replace: true });
+                if (user.emailVerified) {
+                    navigate(from, { replace: true });
+                } else {
+                    toast.error('your email is not verified. Please verified your email first')
+                }
             })
             .catch(error => {
                 setError(error.message)
