@@ -21,7 +21,7 @@ const CourseDetails = () => {
                         </div>
                         <div className="d-flex flex-column flex-lg-row justify-content-lg-evenly mt-lg-5">
                             <Link to={`/course/checkout/${_id}`} className="btn btn-success text-white">Get Premium Access</Link>
-                            <button className='btn btn-primary'>Download PDF</button>
+                            {/* <button className='btn btn-primary'>Download PDF</button> */}
                         </div>
                     </div>
                 </div>

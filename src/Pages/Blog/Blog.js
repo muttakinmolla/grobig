@@ -1,6 +1,10 @@
 import React from 'react';
+import { useContext } from 'react';
+import { AuthContext } from '../../contexts/AuthProvidor/AuthProvider';
 
 const Blog = () => {
+    const {user} = useContext(AuthContext)
+    console.log(user?.email)
     return (
         <div className='container'>
             <div className="row mb-lg-5 mt-lg-5">

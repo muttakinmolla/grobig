@@ -10,12 +10,12 @@ import './Navbar.css';
 
 const NavBar = () => {
     const { user, logOut } = useContext(AuthContext)
-    const [theme, setTheme] = useState('light')
+    // const [theme, setTheme] = useState('light')
 
-    const handleThemeChange = (theme) => {
-        console.log(theme)
-        setTheme(theme);
-    }
+    // const handleThemeChange = (theme) => {
+    //     console.log(theme)
+    //     setTheme(theme);
+    // }
 
     const handleLogOut = () => {
         logOut()
@@ -75,11 +75,11 @@ const NavBar = () => {
                                 }
 
                             </ul>
-                            <div className="d-flex ms-4">
+                            {/* <div className="d-flex ms-4">
                                 {
                                     theme === 'light' ? <button className="btn btn-outline-dark" onClick={() => handleThemeChange('dark')} type="button">dark</button> : <button onClick={() => handleThemeChange('light')} className="btn btn-outline-success" type="button">light</button>
                                 }
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </nav>
